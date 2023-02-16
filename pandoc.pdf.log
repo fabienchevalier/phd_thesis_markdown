@@ -1,0 +1,1061 @@
+[INFO] Loaded /Users/fabien/Documents/GitHub/Repos/phd_thesis_markdown/style/preamble.tex from /Users/fabien/Documents/GitHub/Repos/phd_thesis_markdown/style/preamble.tex
+[INFO] Loaded /Users/fabien/Documents/GitHub/Repos/phd_thesis_markdown/style/template.tex from /Users/fabien/Documents/GitHub/Repos/phd_thesis_markdown/style/template.tex
+[INFO] Running filter pandoc-shortcaption
+[INFO] Completed filter pandoc-shortcaption in 5 ms
+[INFO] Running filter pandoc-xnos
+[INFO] Completed filter pandoc-xnos in 15 ms
+[INFO] Loaded /Users/fabien/Documents/GitHub/Repos/phd_thesis_markdown/style/ref_format.csl from /Users/fabien/Documents/GitHub/Repos/phd_thesis_markdown/style/ref_format.csl
+[INFO] Loaded /Users/fabien/Documents/GitHub/Repos/phd_thesis_markdown/source/references.bib from /Users/fabien/Documents/GitHub/Repos/phd_thesis_markdown/source/references.bib
+[INFO] Not rendering RawBlock (Format "html") "<!-- This page is for an official declaration. -->"
+[INFO] Not rendering RawBlock (Format "html") "<!-- Le r\233sum\233 de votre m\233moire -->"
+[INFO] Not rendering RawBlock (Format "html") "<!-- Remerciements -->"
+[INFO] Not rendering RawBlock (Format "html") "<!-- \nTable des annexes\n\n-->"
+[INFO] Not rendering RawBlock (Format "html") "<!-- \nLa table des r\233f\233rences est \233dit\233es automatiquement, ne pas changer\n-->"
+[makePDF] temp dir:
+/private/var/folders/g1/sq1zx4ys0mjbjls2tyk0hmch0000gn/T/tex2pdf.-806184d651615ddd
+[makePDF] Command line:
+xelatex "-halt-on-error" "-interaction" "nonstopmode" "-output-directory" "/private/var/folders/g1/sq1zx4ys0mjbjls2tyk0hmch0000gn/T/tex2pdf.-806184d651615ddd" "/private/var/folders/g1/sq1zx4ys0mjbjls2tyk0hmch0000gn/T/tex2pdf.-806184d651615ddd/input.tex"
+
+[makePDF] Relevant environment variables:
+("TEXINPUTS","/private/var/folders/g1/sq1zx4ys0mjbjls2tyk0hmch0000gn/T/tex2pdf.-806184d651615ddd:")
+("TEXMFOUTPUT","/private/var/folders/g1/sq1zx4ys0mjbjls2tyk0hmch0000gn/T/tex2pdf.-806184d651615ddd")
+("SHELL","/bin/zsh")
+("TMPDIR","/var/folders/g1/sq1zx4ys0mjbjls2tyk0hmch0000gn/T/")
+("PATH","/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin:/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin:/Users/fabien/.gem/ruby/3.1.2/bin:/Users/fabien/.rubies/ruby-3.1.2/lib/ruby/gems/3.1.0/bin:/Users/fabien/.rubies/ruby-3.1.2/bin:/usr/local/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/VMware Fusion.app/Contents/Public:/Library/TeX/texbin:/usr/local/share/dotnet:/opt/X11/bin:~/.dotnet/tools:/Library/Apple/usr/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Wireshark.app/Contents/MacOS:/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin:/usr/local/Caskroom/miniconda/base/envs/sdv-b3-memoire/bin:/usr/local/Caskroom/miniconda/base/condabin:/usr/local/sbin")
+("PWD","/Users/fabien/Documents/GitHub/Repos/phd_thesis_markdown")
+("LANG","en_US.UTF-8")
+("HOME","/Users/fabien")
+
+[makePDF] Source:
+\documentclass[12pt,a4paper,]{report}
+\usepackage{lmodern}
+
+% Overwrite \begin{figure}[htbp] with \begin{figure}[H]
+\usepackage{float}
+\let\origfigure=\figure
+\let\endorigfigure=\endfigure
+\renewenvironment{figure}[1][]{%
+\origfigure[b]
+}{%
+\endorigfigure
+}
+
+% fix for pandoc 1.14
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% TP: hack to truncate list of figures/tables.
+\usepackage{truncate}
+\usepackage{caption}
+\usepackage{tocloft}
+% TP: end hack
+
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+
+% Only use fixltx2e if using pre-2015 kernels
+\begingroup\expandafter\expandafter\expandafter\endgroup
+\expandafter\ifx\csname IncludeInRelease\endcsname\relax
+  \usepackage{fixltx2e}
+\fi
+
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage{longtable,booktabs}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={Fabien CHEVALIER},
+            pdftitle={Titre du mémoire},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{5}
+
+% 
+
+
+
+% Table of contents formatting
+\renewcommand{\contentsname}{Table of Contents}
+\setcounter{tocdepth}{3}
+
+% Headers and page numbering
+\usepackage{fancyhdr}
+\pagestyle{plain}
+
+% Following package is used to add background image to front page
+\usepackage{wallpaper}
+
+% Table package
+\usepackage{ctable}% http://ctan.org/pkg/ctable
+
+% Deal with 'LaTeX Error: Too many unprocessed floats.'
+\usepackage{morefloats}
+% or use \extrafloats{100}
+% add some \clearpage
+
+% % Chapter header
+% \usepackage{titlesec, blindtext, color}
+% \definecolor{gray75}{gray}{0.75}
+% \newcommand{\hsp}{\hspace{20pt}}
+% \titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter\hsp\textcolor{gray75}{|}\hsp}{0pt}{\Huge\bfseries}
+
+% % Fonts and typesetting
+% \setmainfont[Scale=1.1]{Helvetica}
+% \setsansfont[Scale=1.1]{Verdana}
+
+% FONTS
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\defaultfontfeatures{Mapping=tex-text} % converts LaTeX specials (``quotes'' --- dashes etc.) to unicode
+% \setromanfont[Scale=1.01,Ligatures={Common},Numbers={OldStyle}]{Palatino}
+% \setromanfont[Scale=1.01,Ligatures={Common},Numbers={OldStyle}]{Adobe Caslon Pro}
+%Following line controls size of code chunks
+% \setmonofont[Scale=0.9]{Monaco}
+%Following line controls size of figure legends
+% \setsansfont[Scale=1.2]{Optima Regular}
+
+% CODE BLOCKS
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{color}
+
+% JAVA CODE BLOCKS
+%\definecolor{backcolour}{RGB}{242,242,242}
+%\definecolor{javared}{rgb}{0.6,0,0}
+%\definecolor{javagreen}{rgb}{0.25,0.5,0.35}
+%\definecolor{javapurple}{rgb}{0.5,0,0.35}
+%\definecolor{javadocblue}{rgb}{0.25,0.35,0.75}
+
+\lstdefinestyle{javaCodeStyle}{
+  language=Java,                         % the language of the code
+  backgroundcolor=\color{backcolour},    % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  basicstyle=\fontsize{10}{8}\sffamily,
+  breakatwhitespace=false,
+  breaklines=true,
+  keywordstyle=\color{javapurple}\bfseries,
+  stringstyle=\color{javared},
+  commentstyle=\color{javagreen},
+  morecomment=[s][\color{javadocblue}]{/**}{*/},
+  captionpos=t,                          % sets the caption-position to bottom
+  frame=single,                          % adds a frame around the code
+  numbers=left,
+  numbersep=10pt,                         % margin between number and code block
+  keepspaces=true,                       % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  columns=fullflexible,
+  showspaces=false,                      % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,                % underline spaces within strings only
+  showtabs=false,                        % show tabs within strings adding particular underscores
+  tabsize=2                              % sets default tabsize to 2 spaces
+}
+
+%Attempt to set math size
+%First size must match the text size in the document or command will not work
+%\DeclareMathSizes{display size}{text size}{script size}{scriptscript size}.
+%\DeclareMathSizes{12}{13}{7}{7}
+
+% ---- CUSTOM AMPERSAND
+% \newcommand{\amper}{{\fontspec[Scale=.95]{Adobe Caslon Pro}\selectfont\itshape\&}}
+
+% HEADINGS
+\usepackage{sectsty}
+\usepackage[normalem]{ulem}
+\sectionfont{\rmfamily\mdseries\Large}
+\subsectionfont{\rmfamily\mdseries\scshape\large}
+\subsubsectionfont{\rmfamily\bfseries\upshape\large}
+% \sectionfont{\rmfamily\mdseries\Large}
+% \subsectionfont{\rmfamily\mdseries\scshape\normalsize}
+% \subsubsectionfont{\rmfamily\bfseries\upshape\normalsize}
+
+% Set figure legends and captions to be smaller sized sans serif font
+\usepackage[font={footnotesize,sf}]{caption}
+
+\usepackage{siunitx}
+
+% Adjust spacing between lines to 1.5
+\usepackage{setspace}
+% \onehalfspacing
+\doublespacing
+\raggedbottom
+
+% Set margins
+\usepackage[top=1.5in,bottom=1.5in,left=1.5in,right=1.4in]{geometry}
+\setlength\parindent{0.5in} % indent at start of paragraphs (set to 0.3?)
+\setlength{\parskip}{9pt}
+\usepackage{indentfirst}
+
+% Add space between pararaphs
+% http://texblog.org/2012/11/07/correctly-typesetting-paragraphs-in-latex/
+% \usepackage{parskip}
+% \setlength{\parskip}{\baselineskip}
+
+% Set colour of links to black so that they don't show up when printed
+\usepackage{hyperref}
+\hypersetup{colorlinks=false, linkcolor=black}
+
+% Tables
+\usepackage{booktabs}
+\usepackage{threeparttable}
+\usepackage{array}
+\usepackage{makecell}
+\newcolumntype{x}[1]{%
+>{\centering\arraybackslash}m{#1}}%
+
+% Allow for long captions and float captions on opposite page of figures
+% \usepackage[rightFloats, CaptionBefore]{fltpage}
+
+% Don't let floats cross subsections
+% \usepackage[section,subsection]{extraplaceins}
+
+% Rotate images and tables
+\usepackage{float}
+\usepackage{pdfpages}
+\usepackage{pdflscape}
+\usepackage{graphicx}
+\usepackage{rotating}
+
+% Custom math
+\usepackage{bbold}
+\DeclareMathOperator*{\argmin}{\arg\!\min}
+
+% For use of \cref and \Cref used by pandoc secnos
+\usepackage{cleveref}
+
+\begin{document}
+
+
+\begin{titlepage}
+    \begin{center}
+
+    % Delete the following line
+    % to remove the UCL header logo
+    %\ThisULCornerWallPaper{1.0}{style/header.png}
+
+        \vspace*{2.5cm}
+
+        \huge
+        Titre du mémoire
+
+                \vspace{.5cm}
+
+        \Large
+        Sous-titre
+        
+
+        \vspace{1.5cm}
+
+        \Large
+        Fabien CHEVALIER
+
+        \vspace{1.5cm}
+
+        \normalsize
+        Mémoire présenté pour l'obtention du diplôme:\\
+        BACHELOR SYSTÈMES, RÉSEAUX ET CLOUD
+
+        \vfill
+
+        \normalsize
+        Supervisé par:\\
+        M. \\ Mme.
+
+        \vspace{0.8cm}
+
+        % Uncomment the following line
+        % to add a centered university logo
+         \includegraphics[width=0.1\textwidth]{style/logo.png}
+
+        \normalsize
+        Sup De Vinci\\
+        2022/2023
+
+        % Except where otherwise noted, content in this thesis is licensed under a Creative Commons Attribution 4.0 License (http://creativecommons.org/licenses/by/4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited. Copyright 2015,Tom Pollard.
+
+    \end{center}
+\end{titlepage}
+
+
+% This is where the converted markdown files will go 
+\vspace*{\fill}
+
+\noindent Ici, placer les crédits.
+
+\begin{quote}
+\emph{Tom Pollard et al.~(2016). Template for writing a PhD thesis in
+Markdown. Zenodo. \url{http://dx.doi.org/10.5281/zenodo.58490}}
+\end{quote}
+
+\vspace*{\fill}
+\pagenumbering{gobble}
+\newpage
+
+\hypertarget{ruxe9sumuxe9}{%
+\chapter*{Résumé}\label{ruxe9sumuxe9}}
+\addcontentsline{toc}{chapter}{Résumé}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sit amet
+massa vel metus volutpat pulvinar sit amet vitae felis. Praesent
+interdum ipsum orci, at varius orci rhoncus eu. Fusce cursus, lorem ac
+convallis porta, ligula risus lacinia ex, at blandit libero ex convallis
+nisi. Vivamus vitae mauris et magna maximus volutpat. Aliquam sodales
+leo massa, et finibus urna ornare quis. Curabitur nulla nisi, tincidunt
+nec scelerisque vitae, dignissim vel diam. Aliquam maximus ipsum augue,
+ac iaculis urna porttitor et. Maecenas dictum tincidunt urna, quis
+ultricies nunc consequat quis. Fusce facilisis sem nec lectus laoreet
+imperdiet. Mauris a eros sodales, accumsan mi at, aliquam erat.
+Phasellus et felis tellus.
+
+\pagenumbering{gobble}
+
+\singlespace
+
+\hypertarget{remerciements}{%
+\chapter*{Remerciements}\label{remerciements}}
+\addcontentsline{toc}{chapter}{Remerciements}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sit amet
+massa vel metus volutpat pulvinar sit amet vitae felis. Praesent
+interdum ipsum orci, at varius orci rhoncus eu. Fusce cursus, lorem ac
+convallis porta, ligula risus lacinia ex, at blandit libero ex convallis
+nisi. Vivamus vitae mauris et magna maximus volutpat. Aliquam sodales
+leo massa, et finibus urna ornare quis. Curabitur nulla nisi, tincidunt
+nec scelerisque vitae, dignissim vel diam. Aliquam maximus ipsum augue,
+ac iaculis urna porttitor et. Maecenas dictum tincidunt urna, quis
+ultricies nunc consequat quis. Fusce facilisis sem nec lectus laoreet
+imperdiet. Mauris a eros sodales, accumsan mi at, aliquam erat.
+Phasellus et felis tellus.
+
+\pagenumbering{gobble}
+\newpage
+
+\hypertarget{glossaire}{%
+\chapter*{Glossaire}\label{glossaire}}
+\addcontentsline{toc}{chapter}{Glossaire}
+
+\label{sec:glossaire}
+
+\begin{longtable}[]{@{}ll@{}}
+\caption{Glossaire \label{tbl:random}}\label{tbl:random}\tabularnewline
+\toprule()
+\textbf{Terme} & \textbf{Définition} \\
+\midrule()
+\endfirsthead
+\toprule()
+\textbf{Terme} & \textbf{Définition} \\
+\midrule()
+\endhead
+\bottomrule()
+\end{longtable}
+
+\pagenumbering{gobble}
+\newpage
+
+\renewcommand{\listfigurename}{Figures}
+\listoffigures
+
+\pagenumbering{gobble}
+\newpage
+
+\renewcommand{\contentsname}{Table des matières}
+\tableofcontents
+
+\newpage
+
+\setcounter{page}{1}
+\pagenumbering{arabic}
+\singlespace
+\setlength{\parindent}{0.5in}
+\renewcommand{\chaptername}{Chapitre}
+
+\hypertarget{introduction}{%
+\chapter{Introduction}\label{introduction}}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sit amet
+massa vel metus volutpat pulvinar sit amet vitae felis. Praesent
+interdum ipsum orci, at varius orci rhoncus eu. Fusce cursus, lorem ac
+convallis porta, ligula risus lacinia ex, at blandit libero ex convallis
+nisi. Vivamus vitae mauris et magna maximus volutpat. Aliquam sodales
+leo massa, et finibus urna ornare quis. Curabitur nulla nisi, tincidunt
+nec scelerisque vitae, dignissim vel diam. Aliquam maximus ipsum augue,
+ac iaculis urna porttitor et. Maecenas dictum tincidunt urna, quis
+ultricies nunc consequat quis. Fusce facilisis sem nec lectus laoreet
+imperdiet. Mauris a eros sodales, accumsan mi at, aliquam erat.
+Phasellus et felis tellus.
+
+\setcounter{page}{1}
+\pagenumbering{arabic}
+\singlespace
+\setlength{\parindent}{0.5in}
+\renewcommand{\chaptername}{Chapitre}
+
+\hypertarget{duxe9veloppement}{%
+\chapter{Développement}\label{duxe9veloppement}}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sit amet
+massa vel metus volutpat pulvinar sit amet vitae felis. Praesent
+interdum ipsum orci, at varius orci rhoncus eu. Fusce cursus, lorem ac
+convallis porta, ligula risus lacinia ex, at blandit libero ex convallis
+nisi. Vivamus vitae mauris et magna maximus volutpat. Aliquam sodales
+leo massa, et finibus urna ornare quis. Curabitur nulla nisi, tincidunt
+nec scelerisque vitae, dignissim vel diam. Aliquam maximus ipsum augue,
+ac iaculis urna porttitor et. Maecenas dictum tincidunt urna, quis
+ultricies nunc consequat quis. Fusce facilisis sem nec lectus laoreet
+imperdiet. Mauris a eros sodales, accumsan mi at, aliquam erat.
+Phasellus et felis tellus.
+
+\hypertarget{annexe-1}{%
+\chapter*{Annexe 1:}\label{annexe-1}}
+\addcontentsline{toc}{chapter}{Annexe 1:}
+
+Vivamus hendrerit rhoncus interdum. Sed ullamcorper et augue at porta.
+Suspendisse facilisis imperdiet urna, eu pellentesque purus suscipit in.
+Integer dignissim mattis ex aliquam blandit. Curabitur lobortis quam
+varius turpis ultrices egestas.
+
+\hypertarget{annexe-2}{%
+\chapter*{Annexe 2:}\label{annexe-2}}
+\addcontentsline{toc}{chapter}{Annexe 2:}
+
+Vivamus hendrerit rhoncus interdum. Sed ullamcorper et augue at porta.
+Suspendisse facilisis imperdiet urna, eu pellentesque purus suscipit in.
+Integer dignissim mattis ex aliquam blandit. Curabitur lobortis quam
+varius turpis ultrices egestas.
+
+\footnotesize
+\singlespacing
+\setlength{\parindent}{0in}
+
+\hypertarget{references}{%
+\chapter{References}\label{references}}
+
+
+\end{document}
+
+[makePDF] Run #1
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex)
+ restricted \write18 enabled.
+entering extended mode
+
+(/private/var/folders/g1/sq1zx4ys0mjbjls2tyk0hmch0000gn/T/tex2pdf.-806184d65161
+5ddd/input.tex
+LaTeX2e <2021-11-15> patch level 1
+L3 programming layer <2022-12-17>
+(/usr/local/texlive/2022/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2021/10/04 v1.4n Standard LaTeX document class
+(/usr/local/texlive/2022/texmf-dist/tex/latex/base/size12.clo))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/lm/lmodern.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/float/float.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/truncate/truncate.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/caption/caption.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/caption/caption3.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/graphics/keyval.sty)))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/tocloft/tocloft.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2022/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/local/texlive/2022/texmf-dist/tex/generic/iftex/ifxetex.sty
+(/usr/local/texlive/2022/texmf-dist/tex/generic/iftex/iftex.sty))
+(/usr/local/texlive/2022/texmf-dist/tex/generic/iftex/ifluatex.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/xelatex/mathspec/mathspec.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/fontspec/fontspec.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/l3kernel/expl3.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/l3backend/l3backend-xetex.def)))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/base/fontenc.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/fontspec/fontspec.cfg)))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+(/usr/local/texlive/2022/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/local/texlive/2022/texmf-dist/tex/generic/xkeyval/xkvutils.tex))))
+(/usr/local/texlive/2022/texmf-dist/tex/xelatex/xltxtra/xltxtra.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/realscripts/realscripts.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/metalogo/metalogo.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/graphics-def/xetex.def)))))
+(/usr/local/texlive/2022/texmf-dist/tex/xelatex/xunicode/xunicode.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/tipa/t3enc.def))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/upquote/upquote.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/base/textcomp.sty))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/microtype/microtype.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/microtype/microtype-xetex.def)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/microtype/microtype.cfg))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/tools/longtable.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/booktabs/booktabs.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/local/texlive/2022/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(/usr/local/texlive/2022/texmf-dist/tex/generic/infwarerr/infwarerr.sty))
+(/usr/local/texlive/2022/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pdfescape/pdfescape.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/auxhook/auxhook.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/kvoptions/kvoptions.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/etexcmds/etexcmds.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/puenc.def
+(/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/puenc-greekbasic.def))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/url/url.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/local/texlive/2022/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/base/atbegshi-ltx.sty))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/hxetex.def
+(/usr/local/texlive/2022/texmf-dist/tex/generic/stringenc/stringenc.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+)))
+
+Package hyperref Warning: Option `bookmarks' has already been used,
+(hyperref)                setting the option has no effect on input line 69.
+
+(/usr/local/texlive/2022/texmf-dist/tex/generic/stringenc/se-ascii-print.def)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/wallpaper/wallpaper.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/base/ifthen.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/tools/calc.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/eso-pic/eso-pic.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/graphics-cfg/color.cfg))))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/ctable/ctable.sty
+(/usr/local/texlive/2022/texmf-dist/tex/generic/iftex/ifpdf.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/tools/array.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/tools/tabularx.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/graphics/rotating.sty)
+
+Package ctable Warning: 
+(ctable)                Transparency disabled: pdfTeX is not running in PDF mod
+e .
+
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/morefloats/morefloats.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/base/inputenc.sty
+
+Package inputenc Warning: inputenc package ignored with utf8 based engines.
+
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/listings/listings.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstmisc.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/listings/listings.cfg))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/sectsty/sectsty.sty
+
+LaTeX Warning: Command \underbar  has changed.
+               Check if current package is valid.
+
+
+LaTeX Warning: Command \underline  has changed.
+               Check if current package is valid.
+
+) (/usr/local/texlive/2022/texmf-dist/tex/generic/ulem/ulem.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/siunitx/siunitx.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/translations/translations.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty)
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/setspace/setspace.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/geometry/geometry.sty
+(/usr/local/texlive/2022/texmf-dist/tex/generic/iftex/ifvtex.sty))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/tools/indentfirst.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/threeparttable/threeparttable.sty
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/makecell/makecell.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/pdfpages/pdfpages.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/pdfpages/ppxetex.def))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/pdflscape/pdflscape.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/graphics/lscape.sty))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/bbold/bbold.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/cleveref/cleveref.sty)
+No file input.aux.
+(/usr/local/texlive/2022/texmf-dist/tex/latex/base/ts1cmr.fd)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/tipa/t3cmr.fd)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/caption/ltcaption.sty)
+*** you should *not* be loading the inputenc package
+*** XeTeX expects the source to be in UTF8 encoding
+*** some features of other encodings may conflict, resulting in poor output.
+
+Package microtype Warning: Unable to apply patch `footnote' on input line 226.
+
+
+(/usr/local/texlive/2022/texmf-dist/tex/latex/microtype/mt-LatinModernRoman.cfg
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/refcount/refcount.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/gettitlestring/gettitlestring.s
+ty))
+
+Package hyperref Warning: Rerun to get /PageLabels entry.
+
+
+(/usr/local/texlive/2022/texmf-dist/tex/latex/translations/translations-basic-d
+ictionary-english.trsl)
+*geometry* driver: auto-detecting
+*geometry* detected driver: xetex
+[1] (/usr/local/texlive/2022/texmf-dist/tex/latex/lm/ot1lmr.fd)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/lm/omllmm.fd)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/lm/omslmsy.fd)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/lm/omxlmex.fd)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/microtype/mt-msa.cfg)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/microtype/mt-msb.cfg) [1]
+[1] [1] [1] [1] [2]
+Chapitre 1.
+[1]
+Chapitre 2.
+[2] [3] [4]
+Chapitre 3.
+[5]
+(/private/var/folders/g1/sq1zx4ys0mjbjls2tyk0hmch0000gn/T/tex2pdf.-806184d65161
+5ddd/input.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `input.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+ )
+Output written on /private/var/folders/g1/sq1zx4ys0mjbjls2tyk0hmch0000gn/T/tex2
+pdf.-806184d651615ddd/input.pdf (12 pages).
+Transcript written on /private/var/folders/g1/sq1zx4ys0mjbjls2tyk0hmch0000gn/T/
+tex2pdf.-806184d651615ddd/input.log.
+
+[makePDF] Run #2
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex)
+ restricted \write18 enabled.
+entering extended mode
+
+(/private/var/folders/g1/sq1zx4ys0mjbjls2tyk0hmch0000gn/T/tex2pdf.-806184d65161
+5ddd/input.tex
+LaTeX2e <2021-11-15> patch level 1
+L3 programming layer <2022-12-17>
+(/usr/local/texlive/2022/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2021/10/04 v1.4n Standard LaTeX document class
+(/usr/local/texlive/2022/texmf-dist/tex/latex/base/size12.clo))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/lm/lmodern.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/float/float.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/truncate/truncate.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/caption/caption.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/caption/caption3.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/graphics/keyval.sty)))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/tocloft/tocloft.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2022/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/local/texlive/2022/texmf-dist/tex/generic/iftex/ifxetex.sty
+(/usr/local/texlive/2022/texmf-dist/tex/generic/iftex/iftex.sty))
+(/usr/local/texlive/2022/texmf-dist/tex/generic/iftex/ifluatex.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/xelatex/mathspec/mathspec.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/fontspec/fontspec.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/l3kernel/expl3.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/l3backend/l3backend-xetex.def)))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/base/fontenc.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/fontspec/fontspec.cfg)))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+(/usr/local/texlive/2022/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/local/texlive/2022/texmf-dist/tex/generic/xkeyval/xkvutils.tex))))
+(/usr/local/texlive/2022/texmf-dist/tex/xelatex/xltxtra/xltxtra.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/realscripts/realscripts.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/metalogo/metalogo.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/graphics-def/xetex.def)))))
+(/usr/local/texlive/2022/texmf-dist/tex/xelatex/xunicode/xunicode.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/tipa/t3enc.def))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/upquote/upquote.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/base/textcomp.sty))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/microtype/microtype.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/microtype/microtype-xetex.def)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/microtype/microtype.cfg))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/tools/longtable.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/booktabs/booktabs.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/local/texlive/2022/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(/usr/local/texlive/2022/texmf-dist/tex/generic/infwarerr/infwarerr.sty))
+(/usr/local/texlive/2022/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pdfescape/pdfescape.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/auxhook/auxhook.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/kvoptions/kvoptions.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/etexcmds/etexcmds.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/puenc.def
+(/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/puenc-greekbasic.def))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/url/url.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/local/texlive/2022/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/base/atbegshi-ltx.sty))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/hxetex.def
+(/usr/local/texlive/2022/texmf-dist/tex/generic/stringenc/stringenc.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+)))
+
+Package hyperref Warning: Option `bookmarks' has already been used,
+(hyperref)                setting the option has no effect on input line 69.
+
+(/usr/local/texlive/2022/texmf-dist/tex/generic/stringenc/se-ascii-print.def)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/wallpaper/wallpaper.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/base/ifthen.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/tools/calc.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/eso-pic/eso-pic.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/graphics-cfg/color.cfg))))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/ctable/ctable.sty
+(/usr/local/texlive/2022/texmf-dist/tex/generic/iftex/ifpdf.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/tools/array.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/tools/tabularx.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/graphics/rotating.sty)
+
+Package ctable Warning: 
+(ctable)                Transparency disabled: pdfTeX is not running in PDF mod
+e .
+
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/morefloats/morefloats.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/base/inputenc.sty
+
+Package inputenc Warning: inputenc package ignored with utf8 based engines.
+
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/listings/listings.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstmisc.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/listings/listings.cfg))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/sectsty/sectsty.sty
+
+LaTeX Warning: Command \underbar  has changed.
+               Check if current package is valid.
+
+
+LaTeX Warning: Command \underline  has changed.
+               Check if current package is valid.
+
+) (/usr/local/texlive/2022/texmf-dist/tex/generic/ulem/ulem.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/siunitx/siunitx.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/translations/translations.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty)
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/setspace/setspace.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/geometry/geometry.sty
+(/usr/local/texlive/2022/texmf-dist/tex/generic/iftex/ifvtex.sty))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/tools/indentfirst.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/threeparttable/threeparttable.sty
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/makecell/makecell.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/pdfpages/pdfpages.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/pdfpages/ppxetex.def))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/pdflscape/pdflscape.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/graphics/lscape.sty))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/bbold/bbold.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/cleveref/cleveref.sty)
+(/private/var/folders/g1/sq1zx4ys0mjbjls2tyk0hmch0000gn/T/tex2pdf.-806184d65161
+5ddd/input.aux
+
+LaTeX Warning: Label `tbl:random' multiply defined.
+
+
+LaTeX Warning: Label `tbl:random@cref' multiply defined.
+
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/base/ts1cmr.fd)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/tipa/t3cmr.fd)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/caption/ltcaption.sty)
+*** you should *not* be loading the inputenc package
+*** XeTeX expects the source to be in UTF8 encoding
+*** some features of other encodings may conflict, resulting in poor output.
+
+Package microtype Warning: Unable to apply patch `footnote' on input line 226.
+
+
+(/usr/local/texlive/2022/texmf-dist/tex/latex/microtype/mt-LatinModernRoman.cfg
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/refcount/refcount.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/gettitlestring/gettitlestring.s
+ty))
+(/private/var/folders/g1/sq1zx4ys0mjbjls2tyk0hmch0000gn/T/tex2pdf.-806184d65161
+5ddd/input.out)
+(/private/var/folders/g1/sq1zx4ys0mjbjls2tyk0hmch0000gn/T/tex2pdf.-806184d65161
+5ddd/input.out)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/translations/translations-basic-d
+ictionary-english.trsl)
+*geometry* driver: auto-detecting
+*geometry* detected driver: xetex
+[1] (/usr/local/texlive/2022/texmf-dist/tex/latex/lm/ot1lmr.fd)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/lm/omllmm.fd)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/lm/omslmsy.fd)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/lm/omxlmex.fd)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/microtype/mt-msa.cfg)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/microtype/mt-msb.cfg) [1]
+[1] [1] [1]
+(/private/var/folders/g1/sq1zx4ys0mjbjls2tyk0hmch0000gn/T/tex2pdf.-806184d65161
+5ddd/input.lof) [1]
+(/private/var/folders/g1/sq1zx4ys0mjbjls2tyk0hmch0000gn/T/tex2pdf.-806184d65161
+5ddd/input.toc) [2]
+Chapitre 1.
+[1]
+Chapitre 2.
+[2] [3] [4]
+Chapitre 3.
+[5]
+(/private/var/folders/g1/sq1zx4ys0mjbjls2tyk0hmch0000gn/T/tex2pdf.-806184d65161
+5ddd/input.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ )
+Output written on /private/var/folders/g1/sq1zx4ys0mjbjls2tyk0hmch0000gn/T/tex2
+pdf.-806184d651615ddd/input.pdf (12 pages).
+Transcript written on /private/var/folders/g1/sq1zx4ys0mjbjls2tyk0hmch0000gn/T/
+tex2pdf.-806184d651615ddd/input.log.
+
+[makePDF] Run #3
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex)
+ restricted \write18 enabled.
+entering extended mode
+
+(/private/var/folders/g1/sq1zx4ys0mjbjls2tyk0hmch0000gn/T/tex2pdf.-806184d65161
+5ddd/input.tex
+LaTeX2e <2021-11-15> patch level 1
+L3 programming layer <2022-12-17>
+(/usr/local/texlive/2022/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2021/10/04 v1.4n Standard LaTeX document class
+(/usr/local/texlive/2022/texmf-dist/tex/latex/base/size12.clo))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/lm/lmodern.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/float/float.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/truncate/truncate.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/caption/caption.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/caption/caption3.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/graphics/keyval.sty)))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/tocloft/tocloft.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2022/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/local/texlive/2022/texmf-dist/tex/generic/iftex/ifxetex.sty
+(/usr/local/texlive/2022/texmf-dist/tex/generic/iftex/iftex.sty))
+(/usr/local/texlive/2022/texmf-dist/tex/generic/iftex/ifluatex.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/xelatex/mathspec/mathspec.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/fontspec/fontspec.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/l3kernel/expl3.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/l3backend/l3backend-xetex.def)))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/base/fontenc.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/fontspec/fontspec.cfg)))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+(/usr/local/texlive/2022/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/local/texlive/2022/texmf-dist/tex/generic/xkeyval/xkvutils.tex))))
+(/usr/local/texlive/2022/texmf-dist/tex/xelatex/xltxtra/xltxtra.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/realscripts/realscripts.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/metalogo/metalogo.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/graphics-def/xetex.def)))))
+(/usr/local/texlive/2022/texmf-dist/tex/xelatex/xunicode/xunicode.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/tipa/t3enc.def))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/upquote/upquote.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/base/textcomp.sty))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/microtype/microtype.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/microtype/microtype-xetex.def)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/microtype/microtype.cfg))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/tools/longtable.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/booktabs/booktabs.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/local/texlive/2022/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(/usr/local/texlive/2022/texmf-dist/tex/generic/infwarerr/infwarerr.sty))
+(/usr/local/texlive/2022/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pdfescape/pdfescape.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/auxhook/auxhook.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/kvoptions/kvoptions.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/etexcmds/etexcmds.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/puenc.def
+(/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/puenc-greekbasic.def))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/url/url.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/local/texlive/2022/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/base/atbegshi-ltx.sty))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/hxetex.def
+(/usr/local/texlive/2022/texmf-dist/tex/generic/stringenc/stringenc.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+)))
+
+Package hyperref Warning: Option `bookmarks' has already been used,
+(hyperref)                setting the option has no effect on input line 69.
+
+(/usr/local/texlive/2022/texmf-dist/tex/generic/stringenc/se-ascii-print.def)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/wallpaper/wallpaper.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/base/ifthen.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/tools/calc.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/eso-pic/eso-pic.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/graphics-cfg/color.cfg))))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/ctable/ctable.sty
+(/usr/local/texlive/2022/texmf-dist/tex/generic/iftex/ifpdf.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/tools/array.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/tools/tabularx.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/graphics/rotating.sty)
+
+Package ctable Warning: 
+(ctable)                Transparency disabled: pdfTeX is not running in PDF mod
+e .
+
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/morefloats/morefloats.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/base/inputenc.sty
+
+Package inputenc Warning: inputenc package ignored with utf8 based engines.
+
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/listings/listings.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstmisc.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/listings/listings.cfg))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/sectsty/sectsty.sty
+
+LaTeX Warning: Command \underbar  has changed.
+               Check if current package is valid.
+
+
+LaTeX Warning: Command \underline  has changed.
+               Check if current package is valid.
+
+) (/usr/local/texlive/2022/texmf-dist/tex/generic/ulem/ulem.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/siunitx/siunitx.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/translations/translations.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty)
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/setspace/setspace.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/geometry/geometry.sty
+(/usr/local/texlive/2022/texmf-dist/tex/generic/iftex/ifvtex.sty))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/tools/indentfirst.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/threeparttable/threeparttable.sty
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/makecell/makecell.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/pdfpages/pdfpages.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/pdfpages/ppxetex.def))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/pdflscape/pdflscape.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/graphics/lscape.sty))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/bbold/bbold.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/cleveref/cleveref.sty)
+(/private/var/folders/g1/sq1zx4ys0mjbjls2tyk0hmch0000gn/T/tex2pdf.-806184d65161
+5ddd/input.aux
+
+LaTeX Warning: Label `tbl:random' multiply defined.
+
+
+LaTeX Warning: Label `tbl:random@cref' multiply defined.
+
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/base/ts1cmr.fd)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/tipa/t3cmr.fd)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/caption/ltcaption.sty)
+*** you should *not* be loading the inputenc package
+*** XeTeX expects the source to be in UTF8 encoding
+*** some features of other encodings may conflict, resulting in poor output.
+
+Package microtype Warning: Unable to apply patch `footnote' on input line 226.
+
+
+(/usr/local/texlive/2022/texmf-dist/tex/latex/microtype/mt-LatinModernRoman.cfg
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/refcount/refcount.sty)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/gettitlestring/gettitlestring.s
+ty))
+(/private/var/folders/g1/sq1zx4ys0mjbjls2tyk0hmch0000gn/T/tex2pdf.-806184d65161
+5ddd/input.out)
+(/private/var/folders/g1/sq1zx4ys0mjbjls2tyk0hmch0000gn/T/tex2pdf.-806184d65161
+5ddd/input.out)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/translations/translations-basic-d
+ictionary-english.trsl)
+*geometry* driver: auto-detecting
+*geometry* detected driver: xetex
+[1] (/usr/local/texlive/2022/texmf-dist/tex/latex/lm/ot1lmr.fd)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/lm/omllmm.fd)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/lm/omslmsy.fd)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/lm/omxlmex.fd)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/microtype/mt-msa.cfg)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/microtype/mt-msb.cfg) [1]
+[1] [1] [1]
+(/private/var/folders/g1/sq1zx4ys0mjbjls2tyk0hmch0000gn/T/tex2pdf.-806184d65161
+5ddd/input.lof) [1]
+(/private/var/folders/g1/sq1zx4ys0mjbjls2tyk0hmch0000gn/T/tex2pdf.-806184d65161
+5ddd/input.toc) [2]
+Chapitre 1.
+[1]
+Chapitre 2.
+[2] [3] [4]
+Chapitre 3.
+[5]
+(/private/var/folders/g1/sq1zx4ys0mjbjls2tyk0hmch0000gn/T/tex2pdf.-806184d65161
+5ddd/input.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ )
+Output written on /private/var/folders/g1/sq1zx4ys0mjbjls2tyk0hmch0000gn/T/tex2
+pdf.-806184d651615ddd/input.pdf (12 pages).
+Transcript written on /private/var/folders/g1/sq1zx4ys0mjbjls2tyk0hmch0000gn/T/
+tex2pdf.-806184d651615ddd/input.log.
+

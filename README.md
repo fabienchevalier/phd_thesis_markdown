@@ -7,6 +7,7 @@
     - [Prérequis](#prérequis)
     - [Rédiger son mémoire](#rédiger-son-mémoire)
       - [Organisation du template](#organisation-du-template)
+      - [Misc](#misc)
 
 > Ce projet est une adaptation en Français d'un template rédigé par Tom Polland. Tom Pollard et al. (2016). Template for writing a PhD thesis in Markdown. Zenodo. http://dx.doi.org/10.5281/zenodo.58490.
 ---
@@ -41,6 +42,9 @@ conda activate phd
 
 # install dependences
 make install
+
+# create output directory
+mkdir output
 ```
 
 ### Rédiger son mémoire
@@ -57,4 +61,22 @@ Simplement déposer ses fichiers markdowns ordonnés dans le dossier source comm
 xx_chapitre_1.md
 xx_chapitre_2.md
 ```
-Puis `make pdf`, le fichier généré sera dans /output
+
+Puis `make pdf`, le fichier généré sera dans /output.
+
+N'oubliez pas de modifier les métadonnées dans le .yml en fonction des besoins.
+
+#### Misc
+
+Par défaut, lorsqu'on insère une image comme `![]()`, LaTeX la considérera comme une Figure et l'ajoutera à la table des matières des figures. Si on souhaite uniquement insérer un document graphique, on peut utiliser cette commande LaTeX:
+
+``` latex
+\includegraphics{path_to_img}
+```
+
+Insérer un saut de page:
+
+``` latex
+\newpage
+```
+
